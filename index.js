@@ -11,6 +11,7 @@ document.getElementById("parseButton").onclick = function(){
     gridInfo();
     showTestedEye();
     showUserScores();
+    showBlindSpotInfo();
     for (let i = 0; i< 5; i ++){
         showResultDiagram(i);
     }
@@ -35,6 +36,13 @@ function showUserScores(){
     for (let i=1; i<5; i++){
         let currentID = 'userScore' + i.toString();
         document.getElementById(currentID).textContent = `User score: ${myDataHandle[i][2]}`
+    }
+}
+
+function showBlindSpotInfo(){
+    for (let i=1; i<5; i++){
+        let currentID = 'blindSpotX' + i.toString();
+        document.getElementById(currentID).textContent = `Blind spot at ${myDataHandle[i][0] * myDataHandle[0][2]}px`
     }
 }
 
