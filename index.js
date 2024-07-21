@@ -8,6 +8,7 @@ document.getElementById("parseButton").onclick = function(){
     myDataString = document.getElementById("myData").value;
     myDataHandle = JSON.parse(myDataString);
     console.log(myDataHandle);
+    showDemoInfo();
     gridInfo();
     showTestedEye();
     showUserScores();
@@ -16,6 +17,10 @@ document.getElementById("parseButton").onclick = function(){
         showResultDiagram(i);
     }
     document.getElementById("resultsContainer").style.display = 'block';
+}
+
+function showDemoInfo(){
+    document.getElementById("demoInfo").textContent = `Gender: ${myDataHandle[0][5][0]}, Age: ${myDataHandle[0][5][1]}, Ethnicity: ${myDataHandle[0][5][2]}`;
 }
 
 function showTestedEye(){
@@ -29,7 +34,7 @@ function showTestedEye(){
 }
 
 function gridInfo(){
-    document.getElementById("info").textContent = `Grid set to ${myDataHandle[0][3]}x${myDataHandle[0][4]}`;
+    document.getElementById("gridInfo").textContent = `Grid set to ${myDataHandle[0][3]}x${myDataHandle[0][4]}`;
 }
 
 function showUserScores(){
@@ -40,6 +45,7 @@ function showUserScores(){
 }
 
 function showBlindSpotInfo(){
+    
     for (let i=1; i<5; i++){
         let currentID = 'blindSpotX' + i.toString();
         document.getElementById(currentID).textContent = `Blind spot at ${myDataHandle[i][0] * myDataHandle[0][2]}px`
