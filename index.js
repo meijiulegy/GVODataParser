@@ -13,10 +13,26 @@ document.getElementById("parseButton").onclick = function(){
     showTestedEye();
     showUserScores();
     showBlindSpotInfo();
+    cali3BSRecord();
     for (let i = 0; i< 5; i ++){
         showResultDiagram(i);
     }
     document.getElementById("resultsContainer").style.display = 'block';
+}
+
+function cali3BSRecord(){
+    const bsArrayData = myDataHandle[3][3];
+    const tableBody = document.querySelector("#bsArrayTable tbody");
+    bsArrayData.forEach((row, rowIndex) => {
+        const rowElement = document.createElement("tr");
+        const rowIndexCell = document.createElement("td");
+        rowIndexCell.textContent = rowIndex + 1;
+        rowElement.appendChild(rowIndexCell);
+        const valuesCell = document.createElement("td");
+        valuesCell.textContent = row.join(", ");
+        rowElement.appendChild(valuesCell);
+        tableBody.appendChild(rowElement);
+    });
 }
 
 function showDemoInfo(){
