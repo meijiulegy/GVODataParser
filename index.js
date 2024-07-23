@@ -12,12 +12,17 @@ document.getElementById("parseButton").onclick = function(){
     gridInfo();
     showTestedEye();
     showUserScores();
+    showBlindspotMsg();
     showBlindSpotInfo();
     cali3BSRecord();
     for (let i = 0; i< 5; i ++){
         showResultDiagram(i);
     }
     document.getElementById("resultsContainer").style.display = 'block';
+}
+
+function showBlindspotMsg() {
+    document.getElementById("blindSpotMsg").textContent = myDataHandle[3][4];
 }
 
 function cali3BSRecord(){
