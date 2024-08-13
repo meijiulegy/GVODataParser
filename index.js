@@ -11,6 +11,7 @@ document.getElementById("parseButton").onclick = function(){
     showDemoInfo();
     gridInfo();
     showTestedEye();
+    showTestSequence();
     showUserScores();
     showBlindspotMsg();
     showBlindSpotInfo();
@@ -52,6 +53,10 @@ function showTestedEye(){
     }else{
         document.getElementById("eye").textContent = 'Unexpected results. Data possibly corrupted.';
     }
+}
+
+function showTestSequence(){
+    document.getElementById("testSequence").textContent = `Test sequence: ${myDataHandle[1][3].slice(0, 4)}`;
 }
 
 function gridInfo(){
